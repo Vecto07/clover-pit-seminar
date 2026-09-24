@@ -1,0 +1,3 @@
+- Anfangsbudget
+- Tägliches "Taschengeld"
+- Zinsen auf gespartes Budget, die mit Items erhöht werden können

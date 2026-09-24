@@ -1,0 +1,3 @@
+- Erhöhung nach einem gewissen Zeitraum (5 Tage?)
+- Lineare oder exponentielle Erhöhung
+- [[Budget]] kann nach Belieben eingezahlt werden

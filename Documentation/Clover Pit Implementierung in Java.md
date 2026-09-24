@@ -1,0 +1,24 @@
+- Roguelike Slot Simulator
+- Wichtigste Aspekte:
+	- [[Meilensteine]], die erreicht werden müssen
+	- Slots drehen und Einsatz festlegen, um die Meilensteine zu erreichen
+	- Tägliches [[Budget]], das gespart werden kann
+	- Zufällige [[Items]], die gekauft und genutzt werden können
+- Objektorientierte Struktur:
+	- Player()
+		- [[Inventar]]
+		- Budget
+	- SlotMachine()
+		- [[Spin-Methode]]
+		- Wahrscheinlichkeiten
+	- ItemShop()
+		- Stellt Items zufällig zur Verfügung
+		- Verschiedene [[Item-Wahrscheinlichkeiten]]
+	- Item(int price, int rarity, String effect, String name)
+		- Preisfestlegung
+		- Seltenheitsfestlegung
+		- Beschreibung
+		- Name
+	- Meilenstein / Tag?
+		- Legt den Meilenstein fest
+		- Legt die Zeit fest

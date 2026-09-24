@@ -1,0 +1,6 @@
+- Der Spieler kann mit dem Befehl "Spin" die Slotmaschine betätigen.
+- Es werden 5 Symbole oder Zeichen (in 3 Zeilen?) ausgegeben, die einen festgelegten Punktewert gutschreiben
+- Es gibt Multiplikatoren für erreichte Muster oder die Anzahl der Zeichen, die mit [[Items]] erhöht werden können
+- Der Spieler kann die Punkte auszahlen lassen oder weiterdrehen. Bei zu vielen Spins besteht die Gefahr eines Ergebnisses, das alle Punkte auf 0 setzt.
+- Aus dem [[Budget]] kann einmal pro Tag ausgewählt werden, wie viele Spins gekauft werden sollen (1 - 5 - 10?)
+- Ein Spin ist 5 Coins wert

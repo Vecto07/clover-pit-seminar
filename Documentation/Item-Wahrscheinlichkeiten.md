@@ -1,0 +1,16 @@
+- Verschiedene [[Items]] haben unterschiedliche Wahrscheinlichkeiten
+- Gewöhnlich:
+	- 55%
+	- Schwache Eigenschaften, auf die Aufgebaut werden kann
+- Selten:
+	- 35%
+	- Stärkere Eigenschaften, die z.B. den Multiplikator multiplizieren
+- Episch:
+	- 8%
+	- Sehr starke Eigenschaften, die stark das Spiel beeinflussen können
+- Legendär:
+	- 1%
+	- Quasi Game-Breaking
+- Verflucht:
+	- 1%
+	- Wirklich Game-Breaking, aber mit einer negativen Eigenschaft, die den Run kosten könnte
