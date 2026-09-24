@@ -1,5 +1,5 @@
 - Phasenbeginn:
-    - Schulden werden festgelegt
+    - Schulden werden festgelegt 550-650 (Phase.1)
     - Zeitraum wird festgelegt
     - Budget wird gegeben
 - Individueller Tagesbeginn:
