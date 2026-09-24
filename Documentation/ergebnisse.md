@@ -13,5 +13,5 @@ Mögliche Emojis: ❤️💩👽💯☠️
 - 💩💩💩X = *2.5
 - 💩💩💩💩 = *4
 
-
-
+- ArrayList mit Emoji-Wahrscheinlichkeiten
+  - Wahrscheinlichkeiten müssen immer 100% ergeben

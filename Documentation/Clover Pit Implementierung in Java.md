@@ -7,9 +7,12 @@
 - Objektorientierte Struktur:
 	- Player()
 		- [[Inventar]]
-		- Budget
+		- budget(int startwert)
+    - Inventory()
+      - Hält Items
 	- SlotMachine()
 		- [[Spin-Methode]]
+          - slotMachine.spin();
 		- Wahrscheinlichkeiten
 	- ItemShop()
 		- Stellt Items zufällig zur Verfügung
@@ -19,6 +22,7 @@
 		- Seltenheitsfestlegung
 		- Beschreibung
 		- Name
+        - item.check()
 	- Meilenstein / Tag?
 		- Legt den Meilenstein fest
 		- Legt die Zeit fest
