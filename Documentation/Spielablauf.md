@@ -14,7 +14,7 @@
     - Schulden können beglichen werden, auch nur teilweise
 - Tageswechsel:
     - Gespartes Budget wird verzinst
-    - Schulden werden höher verzinst
+    - Schulden werden höher verzinst!
 
 Zielstrategie:
 - Spezialisierter Build -> Höhere Wahrscheinlichkeit von guten Symbolen
