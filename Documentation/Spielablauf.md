@@ -13,8 +13,8 @@
       -> Max. Inventar: 5 Items
     - Schulden können beglichen werden, auch nur teilweise
 - Tageswechsel:
-    - Gespartes Budget wird verzinst
-    - Schulden werden höher verzinst!
+    - Gespartes Budget wird verzinst 5%
+    - Schulden werden höher verzinst! 10%
 
 Zielstrategie:
 - Spezialisierter Build -> Höhere Wahrscheinlichkeit von guten Symbolen
