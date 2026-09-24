@@ -10,6 +10,8 @@ import dev.tamboui.toolkit.event.EventResult;
 
 
 public class UI extends ToolkitApp {
+    SlotMachine slotMachine = new SlotMachine();
+    private String slots = "[ ][ ][ ][ ]";
     private String statusText = "Press Space to Spin";
     @Override
     protected Element render() {
@@ -20,7 +22,7 @@ public class UI extends ToolkitApp {
                     panel(
                         text("Welcome to CLOVER PIT!").bold().cyan().centered(),
                         spacer(),
-                        text("[☠️][💯][☀️][💫]").bold().cyan().centered(),
+                        text(slots).bold().cyan().centered(),
                         spacer()
                     )
                         .percent(33)
@@ -36,7 +38,8 @@ public class UI extends ToolkitApp {
                         .flex(Flex.CENTER)
                 ).fill().rounded().vertical().onKeyEvent(event -> {
                     if (event.isChar(' ')) {
-                        statusText = "Space was pressed!";
+                        slots = slotMachine.spinSeveralTimes(4);
+                        statusText = "SPACE was pressed";
                         return EventResult.HANDLED;
                     }
 

@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.tom.HelloDsl</mainClass>
+                  <mainClass>com.tom.UI</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -30,7 +30,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.5.0</version>
         <configuration>
-          <mainClass>com.tom.HelloDsl</mainClass>
+          <mainClass>com.tom.UI</mainClass>
         </configuration>
       </plugin>
     </plugins>

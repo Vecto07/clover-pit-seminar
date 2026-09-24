@@ -10,7 +10,7 @@
 		- budget(int startwert)
     - Inventory()
       - Hält Items
-	- SlotMachine()
+	- com.tom.SlotMachine()
 		- [[Spin-Methode]]
           - slotMachine.spin();
 		- Wahrscheinlichkeiten
