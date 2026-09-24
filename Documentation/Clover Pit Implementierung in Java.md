@@ -22,4 +22,3 @@
 	- Meilenstein / Tag?
 		- Legt den Meilenstein fest
 		- Legt die Zeit fest
-        - sakjdghsakdhg
