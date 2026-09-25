@@ -1,0 +1,10 @@
+- Willkommen bei Clover Pit!
+- Warte... Du hast $600 Schulden??
+- Du hast Glück im Unglück! Du musst sie zwar innerhalb von 5 Tagen zurückzahlen...
+- Aber indem du jeden Tag am Glücksrad drehst, wirst du es sicher bald zusammen haben ;)
+- So läuft es:
+- Jeden Morgen bekommst du etwas Geld. Das kannst du nutzen, um Spins zu kaufen.
+- Die Spins kannst du mit Shop-Items "aufbessern". Den Shop kannst du nach deinen Spins besuchen.
+- Am Ende des Tages kannst du dich entscheiden, ob du schon Schulden zurückzahlen möchtest. Dein gespartes Geld wird verzinst - aber die Schulden auch!
+- Halte dich fern von den Totenköpfen, nutze deine Items und zahle deine Schulden zurück!
+- Viel Erfolg <3
