@@ -15,7 +15,7 @@ import java.time.Duration;
 public class Welcome {
 
     private static final String[] WILLKOMMEN = {
-            "Willkommen bei Clover Pit!",
+            "Willkommen bei Clover Shit!",
             "Warte... Du hast $1500 Schulden??",
             "Du hast Glück im Unglück! Du musst sie zwar innerhalb von 5 Tagen zurückzahlen...",
             "Aber indem du jeden Tag am Glücksrad drehst, wirst du es sicher bald zusammen haben ;)",

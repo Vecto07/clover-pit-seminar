@@ -36,7 +36,7 @@ public class UI extends ToolkitApp {
                 panel("Left").fill().borderColor(Color.BLACK),
                 panel("Game",
                     panel(
-                        text("Welcome to CLOVER PIT!").bold().cyan().centered(),
+                        text("Welcome to CLOVER SHIT!").bold().cyan().centered(),
                         spacer(),
                         text(slots).bold().cyan().centered(),
                         spacer()
@@ -107,10 +107,17 @@ public class UI extends ToolkitApp {
                 }
                 app.runOnRenderThread(() -> {
                     spinSlots();
-                    statusText = spinsUsed == MAX_SPINS
-                            ? "Keine Züge mehr"
-                            : "Coins: " + slotMachine.getCoins()
-                            + " | Spins: " + spinsUsed + "/" + MAX_SPINS;
+                    if (spinsUsed == MAX_SPINS) {
+                        if (schulden > 0) {
+                            statusText = "Du hast verloren!";
+                        } else {
+                            statusText = "Du hast gewonnen!";
+                        }
+
+                    } else {
+                        statusText = "Coins: " + slotMachine.getCoins()
+                                + " | Spins: " + spinsUsed + "/" + MAX_SPINS;
+                    }
                     spinning = false;
                 });
             } catch (InterruptedException exception) {
