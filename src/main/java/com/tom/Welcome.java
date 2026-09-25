@@ -24,7 +24,20 @@ public class Welcome extends ToolkitApp {
             "Am Ende des Tages kannst du dich entscheiden, ob du schon Schulden zurückzahlen möchtest. Dein gespartes Geld wird verzinst - aber die Schulden auch!",
             "Halte dich fern von den Totenköpfen, nutze deine Items und zahle deine Schulden zurück!",
             "Viel Erfolg <3",
-            "Drücke q für Start!"
+            "Drücke q für Start!",
+            "DRÜCKE q UM ZU STARTEN!",
+            "Was machst du hier??????",
+            "GEH BITTE JETZT; EINFACH q DRÜCKEN!",
+            "AAAAAAAAAAAHHHHHHHHHH",
+            "Ich sags noch einmal, q DRÜCKEN!",
+            "Willst du nicht spielen?",
+            "GEH JETZT ENDLICH, q DRÜCKEN!"
+            "TSCHÜSS",
+            "TSCHÜSS",
+            "TSCHÜSS",
+            "TSCHÜSS",
+            "TSCHÜSS",
+
     };
 
     private int messageIndex;
