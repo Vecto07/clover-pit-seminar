@@ -7,9 +7,8 @@ import dev.tamboui.style.Color;
 import dev.tamboui.toolkit.app.ToolkitApp;
 import dev.tamboui.toolkit.element.Element;
 import dev.tamboui.toolkit.event.EventResult;
-import dev.tamboui.widgets.table.Row;
 
-import java.time.Duration;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class UI extends ToolkitApp {
@@ -17,6 +16,11 @@ public class UI extends ToolkitApp {
     Inventory inventory = new Inventory();
     private String slots = "[ ][ ][ ][ ]";
     private String statusText = "Press Space to Spin";
+    private boolean spinning;
+    private Thread slotAnimation;
+
+    private static final String[] SLOT_SYMBOLS = {"💩", "❤️", "👽", "💯", "☠️"};
+
     @Override
     protected Element render() {
         String text = "";
@@ -27,7 +31,12 @@ public class UI extends ToolkitApp {
                         text("Welcome to CLOVER PIT!").bold().cyan().centered(),
                         spacer(),
                         text(slots).bold().cyan().centered(),
-                        spacer()
+                        spacer(),
+                        row(
+                                text("Schulden: 1500$").bold().cyan(),
+                                spacer(),
+                                text("Tag: 1").bold().cyan()
+                        )
                     )
                         .percent(33)
                         .rounded()
@@ -41,10 +50,8 @@ public class UI extends ToolkitApp {
                         .rounded()
                         .flex(Flex.CENTER)
                 ).fill().rounded().vertical().onKeyEvent(event -> {
-                    if (event.isChar(' ')) {
-                        spinSlots();
-                        String getCoins = ("Coins: " + slotMachine.getCoins());
-                        statusText = getCoins;
+                    if (event.isChar(' ') && !spinning) {
+                        startSpinAnimation();
                         return EventResult.HANDLED;
                     }
 
@@ -75,6 +82,45 @@ public class UI extends ToolkitApp {
 
     public void spinSlots() {
         slots = slotMachine.spinSeveralTimes(4);
+    }
+
+    private void startSpinAnimation() {
+        spinning = true;
+        statusText = "Es dreht sich...";
+        slotAnimation = new Thread(() -> {
+            try {
+                for (int i = 0; i < 20; i++) {
+                    runner().runOnRenderThread(() -> slots = randomSlots());
+                    Thread.sleep(35L + i * 12L);
+                }
+                runner().runOnRenderThread(() -> {
+                    spinSlots();
+                    statusText = "Coins: " + slotMachine.getCoins();
+                    spinning = false;
+                });
+            } catch (InterruptedException exception) {
+                Thread.currentThread().interrupt();
+            }
+        });
+        slotAnimation.start();
+    }
+
+    private String randomSlots() {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            String symbol = SLOT_SYMBOLS[
+                    ThreadLocalRandom.current().nextInt(SLOT_SYMBOLS.length)
+            ];
+            result.append('[').append(symbol).append("] ");
+        }
+        return result.toString().trim();
+    }
+
+    @Override
+    protected void onStop() {
+        if (slotAnimation != null) {
+            slotAnimation.interrupt();
+        }
     }
 
     public static void main(String[] args) throws Exception {
