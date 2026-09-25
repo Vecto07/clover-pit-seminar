@@ -41,7 +41,7 @@ public class UI extends ToolkitApp {
                         .flex(Flex.CENTER)
                 ).fill().rounded().vertical().onKeyEvent(event -> {
                     if (event.isChar(' ')) {
-                        spinSlots(50);
+                        spinSlots();
                         String getCoins = ("Coins: " + slotMachine.getCoins());
                         statusText = getCoins;
                         return EventResult.HANDLED;
@@ -72,7 +72,7 @@ public class UI extends ToolkitApp {
         );
     }
 
-    public void spinSlots(int sleep) {
+    public void spinSlots() {
         slots = slotMachine.spinSeveralTimes(4);
     }
 
