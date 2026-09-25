@@ -15,7 +15,7 @@ import java.time.Duration;
 public class Welcome extends ToolkitApp {
     private static final String[] Willkommen = {
             "Willkommen bei Clover Pit!",
-            "Warte... Du hast $600 Schulden??",
+            "Warte... Du hast $1500 Schulden??",
             "Du hast Glück im Unglück! Du musst sie zwar innerhalb von 5 Tagen zurückzahlen...",
             "Aber indem du jeden Tag am Glücksrad drehst, wirst du es sicher bald zusammen haben ;)",
             "So läuft es:",

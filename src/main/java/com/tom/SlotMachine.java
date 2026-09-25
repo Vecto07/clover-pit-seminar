@@ -57,6 +57,10 @@ public class SlotMachine {
         this.emojiAppearancesInitial.put("☠️", 0);
     }
 
+    public void setCoinsEarned(double value) {
+        this.coinsEarned = value;
+    }
+
     public String spin() {
         double spinResult = Math.random();
         ArrayList<Double> hashMapKeys = new ArrayList<>(emojiProbabilities.keySet());
@@ -90,10 +94,10 @@ public class SlotMachine {
             if(content == "SkEL") {
                 this.emojiValues.put("☠️", 155.0);
                 this.emojiProbabilities.clear();
-                this.emojiProbabilities.put(0.31, "💩");
-                this.emojiProbabilities.put(0.52, "❤️");
-                this.emojiProbabilities.put(0.62, "👽");
-                this.emojiProbabilities.put(0.64, "💯");
+                this.emojiProbabilities.put(0.25, "💩");
+                this.emojiProbabilities.put(0.43, "❤️");
+                this.emojiProbabilities.put(0.52, "👽");
+                this.emojiProbabilities.put(0.54, "💯");
                 this.emojiProbabilities.put(1.00, "☠️");
             }
         }
@@ -107,6 +111,7 @@ public class SlotMachine {
         double mult3 = 1.6;
         String output = "";
         this.checkInventory();
+        this.emojiAppearances = new HashMap<>(this.emojiAppearancesInitial);
         for(int i = 1; i <= amount; i++) {
             String tempString = this.spin();
             int appearances = this.emojiAppearances.get(tempString);
@@ -120,11 +125,11 @@ public class SlotMachine {
             } else if(this.emojiAppearances.get(tempString) == 4) {
                 coins = coins * mult3;
             }
+            coinsEarned = coinsEarned + this.calculateCoins(tempString);
             if(this.emojiAppearances.get("☠️") == 4) {
                 coinsEarned = 0;
+                break;
             }
-            coinsEarned = coinsEarned + this.calculateCoins(tempString);
-            this.emojiAppearances = this.emojiAppearancesInitial;
         }
 
         for(String content: emojis) {
