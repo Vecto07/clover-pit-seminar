@@ -7,6 +7,7 @@ import dev.tamboui.style.Color;
 import dev.tamboui.toolkit.app.ToolkitApp;
 import dev.tamboui.toolkit.element.Element;
 import dev.tamboui.toolkit.event.EventResult;
+import dev.tamboui.widgets.table.Row;
 
 import java.time.Duration;
 
@@ -48,7 +49,9 @@ public class UI extends ToolkitApp {
 
                     return EventResult.UNHANDLED;
                 }),
-                panel("Right").fill().borderColor(Color.BLACK)
+                panel("Right"
+
+                ).fill().borderColor(Color.BLACK)
 
         );
     }
