@@ -22,6 +22,9 @@ public class UI extends ToolkitApp {
     private String statusText = "Press Space to Spin";
     private boolean spinning;
     private Thread slotAnimation;
+    private int spinsUsed;
+
+    private static final int MAX_SPINS = 5;
 
     private static final String[] SLOT_SYMBOLS = {"💩", "❤️", "👽", "💯", "☠️"};
 
@@ -55,7 +58,7 @@ public class UI extends ToolkitApp {
                         .rounded()
                         .flex(Flex.CENTER)
                 ).fill().rounded().vertical().onKeyEvent(event -> {
-                    if (event.isChar(' ') && !spinning) {
+                    if (event.isChar(' ') && !spinning && spinsUsed < MAX_SPINS) {
                         startSpinAnimation();
                         return EventResult.HANDLED;
                     }
@@ -91,6 +94,7 @@ public class UI extends ToolkitApp {
 
     private void startSpinAnimation() {
         spinning = true;
+        spinsUsed++;
         statusText = "Es dreht sich...";
         slotAnimation = new Thread(() -> {
             try {
@@ -100,7 +104,10 @@ public class UI extends ToolkitApp {
                 }
                 app.runOnRenderThread(() -> {
                     spinSlots();
-                    statusText = "Coins: " + slotMachine.getCoins();
+                    statusText = spinsUsed == MAX_SPINS
+                            ? "Keine Züge mehr"
+                            : "Coins: " + slotMachine.getCoins()
+                            + " | Spins: " + spinsUsed + "/" + MAX_SPINS;
                     spinning = false;
                 });
             } catch (InterruptedException exception) {
