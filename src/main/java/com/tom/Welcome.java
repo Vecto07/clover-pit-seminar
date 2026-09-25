@@ -31,7 +31,7 @@ public class Welcome extends ToolkitApp {
             "AAAAAAAAAAAHHHHHHHHHH",
             "Ich sags noch einmal, q DRÜCKEN!",
             "Willst du nicht spielen?",
-            "GEH JETZT ENDLICH, q DRÜCKEN!"
+            "GEH JETZT ENDLICH, q DRÜCKEN!",
             "TSCHÜSS",
             "TSCHÜSS",
             "TSCHÜSS",
