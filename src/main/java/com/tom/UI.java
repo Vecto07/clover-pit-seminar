@@ -49,9 +49,25 @@ public class UI extends ToolkitApp {
 
                     return EventResult.UNHANDLED;
                 }),
-                panel("Right"
-
-                ).fill().borderColor(Color.BLACK)
+                panel("Right",
+                        row(
+                            panel("Top",
+                                text("💩")
+                            ).rounded(),
+                            panel("Top",
+                                    text("💩")
+                            ).rounded(),
+                            panel("Top",
+                                    text("💩")
+                            ).rounded(),
+                            panel("Top",
+                                    text("💩")
+                            ).rounded(),
+                            panel("Top",
+                                    text("💩")
+                            ).rounded()
+                        ).flex(Flex.SPACE_AROUND)
+                ).fill().rounded()
 
         );
     }
