@@ -24,7 +24,7 @@ public class Welcome extends ToolkitApp {
             "Am Ende des Tages kannst du dich entscheiden, ob du schon Schulden zurückzahlen möchtest. Dein gespartes Geld wird verzinst - aber die Schulden auch!",
             "Halte dich fern von den Totenköpfen, nutze deine Items und zahle deine Schulden zurück!",
             "Viel Erfolg <3",
-            "Drücke S für Start!"
+            "Drücke q für Start!"
     };
 
     private int messageIndex;
@@ -95,18 +95,7 @@ public class Welcome extends ToolkitApp {
                     }
 
                     return EventResult.UNHANDLED;
-                }).onKeyEvent(event -> {
-                            if (event.isChar('s') || event.isConfirm()) {
-                                try {
-                                    new UI().run();
-                                } catch (Exception e) {
-                                    throw new RuntimeException(e);
-                                }
-                                return EventResult.HANDLED;
-                            }
-
-                            return EventResult.UNHANDLED;
-                        }),
+                }),
                 panel("Rechts").fill().borderColor(Color.BLACK)
 
         );
