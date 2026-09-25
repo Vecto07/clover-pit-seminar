@@ -14,6 +14,7 @@ import java.time.Duration;
 
 public class UI extends ToolkitApp {
     SlotMachine slotMachine = new SlotMachine();
+    Inventory inventory = new Inventory();
     private String slots = "[ ][ ][ ][ ]";
     private String statusText = "Press Space to Spin";
     @Override
@@ -52,19 +53,19 @@ public class UI extends ToolkitApp {
                 panel("Inventar",
                         row(
                             panel("Item 1",
-                                text("💩")
+                                text(inventory.getItem(0))
                             ).rounded(),
                             panel("Item 2",
-                                    text("💩")
+                                    text(inventory.getItem(1))
                             ).rounded(),
                             panel("Item 3",
-                                    text("💩")
+                                    text(inventory.getItem(2))
                             ).rounded(),
                             panel("Item 4",
-                                    text("💩")
+                                    text(inventory.getItem(3))
                             ).rounded(),
                             panel("Item 5",
-                                    text("💩")
+                                    text(inventory.getItem(4))
                             ).rounded()
                         ).flex(Flex.SPACE_AROUND)
                 ).fill().rounded()

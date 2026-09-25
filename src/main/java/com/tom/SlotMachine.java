@@ -29,8 +29,8 @@ public class SlotMachine {
         this.emojiAppearancesInitial = new HashMap<>();
         this.playerInventory = new Inventory();
         this.mult1 = 1.25;
-        this.mult2 = 2;
-        this.mult3 = 1.6;
+        this.mult2 = 2.5;
+        this.mult3 = 4.0;
         this.emojiProbabilities.put(0.44, "💩");
         this.emojiProbabilities.put(0.74, "❤️");
         this.emojiProbabilities.put(0.89, "👽");
@@ -83,8 +83,8 @@ public class SlotMachine {
     }
 
     public void checkInventory() {
-        ArrayList<String> inventory = playerInventory.getArrayList();
-        for(String content: inventory) {
+        HashMap<String, String> inventory = playerInventory.getArrayList();
+        for(String content: inventory.keySet()) {
             if(content.equals("ShEC")) {
                 this.emojiValues.put("💩", 25.0);
             }
@@ -116,40 +116,47 @@ public class SlotMachine {
 
     public String spinSeveralTimes(int amount) {
         ArrayList<String> emojis = new ArrayList<>();
-        ArrayList<String> emojisClean = new ArrayList<>();
         String output = "";
         this.checkInventory();
         this.emojiAppearances = new HashMap<>(this.emojiAppearancesInitial);
+        String tempString = "";
         for(int i = 1; i <= amount; i++) {
-            String tempString = this.spin();
+            tempString = this.spin();
             int appearances = this.emojiAppearances.get(tempString);
             this.emojiAppearances.put(tempString, appearances + 1);
             emojis.add("[" + tempString + "]");
-            emojisClean.add(tempString);
             coins = coins + this.calculateCoins(tempString);
-            if(this.emojiAppearances.get(tempString) == 2) {
-                coins = coins * mult1;
-            } else if(this.emojiAppearances.get(tempString) == 3) {
-                coins = coins * mult2;
-            } else if(this.emojiAppearances.get(tempString) == 4) {
-                coins = coins * mult3;
-            }
-            coinsEarned = coinsEarned + coins;
             if(this.emojiAppearances.get("☠️") >= 4) {
                 coinsEarned = 0;
                 break;
             }
         }
 
+        int initAppearances = 0;
+        for(int appearances: this.emojiAppearances.values()) {
+            if(appearances > initAppearances) {
+                initAppearances = appearances;
+            }
+        }
+        if(initAppearances == 2) {
+            coins = coins * mult1;
+        } else if(initAppearances == 3) {
+            coins = coins * mult2;
+        } else if(initAppearances == 4) {
+            coins = coins * mult3;
+        }
+        coinsEarned = coinsEarned + coins;
+
         for(String content: emojis) {
             output = output + (content + " ");
         }
-        this.emojiProbabilities = this.emojiProbabilitiesInitial;
-        this.emojiValues = this.emojiValuesInitial;
+        this.emojiProbabilities = new HashMap<>(this.emojiProbabilitiesInitial);
+        this.emojiValues = new HashMap<>(this.emojiValuesInitial);
         return output.trim();
     }
 
     public double getCoins() {
+        coins = 0;
         return this.coinsEarned;
     }
 
