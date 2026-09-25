@@ -9,16 +9,13 @@ public class Inventory {
     public Inventory() {
         inventar = new ArrayList<>();
         shop = new Shop();
-        this.inventar.add("SkEL");
     }
 
     public int getInventoryLength() {
-
         return(this.inventar.size());
     }
 
     public ArrayList<String> getArrayList() {
-
         return this.inventar;
     }
 
