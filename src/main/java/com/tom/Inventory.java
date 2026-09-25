@@ -31,12 +31,4 @@ public class Inventory {
         }
         return(inventar.get(inventar.keySet().toArray()[index]));
     }
-
-    public void getAllItems() {
-
-    }
-
-    public String displayItems() {
-        return("");
-    }
 }
