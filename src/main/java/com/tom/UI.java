@@ -18,6 +18,7 @@ public class UI extends ToolkitApp {
     }
     SlotMachine slotMachine = new SlotMachine();
     Inventory inventory = new Inventory();
+    private int schulden = 1500;
     private String slots = "[ ][ ][ ][ ]";
     private String statusText = "Press Space to Spin";
     private boolean spinning;
@@ -48,7 +49,9 @@ public class UI extends ToolkitApp {
                         text(statusText).bold().cyan().centered(),
                         spacer(),
                         row(
-                                text("Schulden: 1500$").bold().cyan(),
+                                text("Schulden: " + (schulden - slotMachine.getCoinsEarned()) + "$").bold().cyan(),
+                                spacer(),
+                                text("Coins gesamt: " + slotMachine.getCoinsEarned() + "$").bold().cyan(),
                                 spacer(),
                                 text("Tag: 1").bold().cyan()
                         ),
