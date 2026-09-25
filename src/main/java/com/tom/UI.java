@@ -35,12 +35,8 @@ public class UI extends ToolkitApp {
                         text("Welcome to CLOVER PIT!").bold().cyan().centered(),
                         spacer(),
                         text(slots).bold().cyan().centered(),
-                        spacer(),
-                        row(
-                                text("Schulden: 1500$").bold().cyan(),
-                                spacer(),
-                                text("Tag: 1").bold().cyan()
-                        )
+                        spacer()
+
                     )
                         .percent(33)
                         .rounded()
@@ -48,6 +44,11 @@ public class UI extends ToolkitApp {
                     panel(
                         text(statusText).bold().cyan().centered(),
                         spacer(),
+                        row(
+                                text("Schulden: 1500$").bold().cyan(),
+                                spacer(),
+                                text("Tag: 1").bold().cyan()
+                        ),
                         text("Press 'q' to quit").dim().centered()
                     )
                         .fill()
