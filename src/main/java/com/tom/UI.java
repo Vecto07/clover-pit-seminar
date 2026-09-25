@@ -33,7 +33,7 @@ public class UI extends ToolkitApp {
                     panel(
                         text(statusText).bold().cyan().centered(),
                         spacer(),
-                        text("PRess 'q' to quit").dim().centered()
+                        text("Press 'q' to quit").dim().centered()
                     )
                         .fill()
                         .rounded()
@@ -68,7 +68,6 @@ public class UI extends ToolkitApp {
 
     public static void main(String[] args) throws Exception {
         // App starten
-
         new UI().run();
     }
 }
