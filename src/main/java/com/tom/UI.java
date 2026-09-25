@@ -12,6 +12,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class UI extends ToolkitApp {
+    private final Main app;
+    public UI(Main app) {
+        this.app = app;
+    }
     SlotMachine slotMachine = new SlotMachine();
     Inventory inventory = new Inventory();
     private String slots = "[ ][ ][ ][ ]";
@@ -125,6 +129,6 @@ public class UI extends ToolkitApp {
 
     public static void main(String[] args) throws Exception {
         // App starten
-        new UI().run();
+        new Main().run();
     }
 }
