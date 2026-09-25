@@ -13,6 +13,7 @@ public class Shop {
         items.put("AlEC", "Erhöht den Wert aller Aliens um 10.");
         items.put("HuER", "Erhöht den Wert aller 100 um 25.");
         items.put("SkEL", "Erhöht den Wert aller Totenköpfe um 150 und setzt die Wahrscheinlichkeit auf 45%.");
+        items.put("ShMR", "Erhöht den Multiplikator für Kackhaufen um x1.2.");
     }
 
 
