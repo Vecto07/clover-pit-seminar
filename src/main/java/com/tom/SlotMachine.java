@@ -12,6 +12,7 @@ public class SlotMachine {
     public SlotMachine() {
         this.coins = 0;
         this.emojiProbabilities = new HashMap<>();
+        this.emojiValues = new HashMap<>();
         this.emojiProbabilities.put(0.44, "💩");
         this.emojiProbabilities.put(0.74, "❤️");
         this.emojiProbabilities.put(0.89, "👽");

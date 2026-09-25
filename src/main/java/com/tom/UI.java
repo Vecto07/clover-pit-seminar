@@ -33,7 +33,7 @@ public class UI extends ToolkitApp {
                     panel(
                         text(statusText).bold().cyan().centered(),
                         spacer(),
-                        text("Press 'q' to quit").dim().centered()
+                        text("PRess 'q' to quit").dim().centered()
                     )
                         .fill()
                         .rounded()
