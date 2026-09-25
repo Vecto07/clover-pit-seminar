@@ -94,10 +94,10 @@ public class UI extends ToolkitApp {
         slotAnimation = new Thread(() -> {
             try {
                 for (int i = 0; i < 20; i++) {
-                    runner().runOnRenderThread(() -> slots = randomSlots());
+                    app.runOnRenderThread(() -> slots = randomSlots());
                     Thread.sleep(35L + i * 12L);
                 }
-                runner().runOnRenderThread(() -> {
+                app.runOnRenderThread(() -> {
                     spinSlots();
                     statusText = "Coins: " + slotMachine.getCoins();
                     spinning = false;
