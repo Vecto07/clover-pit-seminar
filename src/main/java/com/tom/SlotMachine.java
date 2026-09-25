@@ -6,7 +6,8 @@ import java.util.HashMap;
 
 public class SlotMachine {
     private HashMap<Double, String> emojiProbabilities;
-    private int coins;
+    private HashMap<String, Double> emojiValues;
+    private double coins;
 
     public SlotMachine() {
         this.coins = 0;
@@ -16,6 +17,11 @@ public class SlotMachine {
         this.emojiProbabilities.put(0.89, "👽");
         this.emojiProbabilities.put(0.94, "💯");
         this.emojiProbabilities.put(1.00, "☠️");
+        this.emojiValues.put("💩", 15.0);
+        this.emojiValues.put("❤️", 25.0);
+        this.emojiValues.put("👽", 45.0);
+        this.emojiValues.put("💯", 100.0);
+        this.emojiValues.put("☠️", 5.0);
     }
 
     public String spin() {
@@ -35,10 +41,12 @@ public class SlotMachine {
 
     public String spinSeveralTimes(int amount) {
         ArrayList<String> emojis = new ArrayList<>();
+        ArrayList<String> emojisClean = new ArrayList<>();
         String output = "";
         for(int i = 1; i <= amount; i++) {
             String tempString = this.spin();
             emojis.add("[" + tempString + "]");
+            emojisClean.add(tempString);
             coins = coins + this.calculateCoins(tempString);
         }
         for(String content: emojis) {
@@ -47,19 +55,19 @@ public class SlotMachine {
         return output.trim();
     }
 
-    public int getCoins() {
-        int tempCoins = this.coins;
+    public double getCoins() {
+        double tempCoins = this.coins;
         this.coins = 0;
         return tempCoins;
     }
 
-    public int calculateCoins(String emoji) {
+    public double calculateCoins(String emoji) {
         switch(emoji) {
-            case("💩"): return(15);
-            case("❤️"): return(25);
-            case("👽"): return(45);
-            case("💯"): return(100);
-            case("☠️"): return(5);
+            case("💩"): return(emojiValues.get("💩"));
+            case("❤️"): return(emojiValues.get("❤️"));
+            case("👽"): return(emojiValues.get("👽"));
+            case("💯"): return(emojiValues.get("💯"));
+            case("☠️"): return(emojiValues.get("☠️"));
         }
         return(0);
     }

@@ -8,6 +8,8 @@ import dev.tamboui.toolkit.app.ToolkitApp;
 import dev.tamboui.toolkit.element.Element;
 import dev.tamboui.toolkit.event.EventResult;
 
+import java.time.Duration;
+
 
 public class UI extends ToolkitApp {
     SlotMachine slotMachine = new SlotMachine();
@@ -38,8 +40,9 @@ public class UI extends ToolkitApp {
                         .flex(Flex.CENTER)
                 ).fill().rounded().vertical().onKeyEvent(event -> {
                     if (event.isChar(' ')) {
-                        slots = slotMachine.spinSeveralTimes(4);
-                        statusText = "SPACE was pressed";
+                        spinSlots(50);
+                        String getCoins = ("Coins: " + slotMachine.getCoins());
+                        statusText = getCoins;
                         return EventResult.HANDLED;
                     }
 
@@ -48,6 +51,19 @@ public class UI extends ToolkitApp {
                 panel("Right").fill().borderColor(Color.BLACK)
 
         );
+    }
+
+    public void spinSlots(int sleep) {
+        for(int i = 0; i < 50; i++) {
+            double sleepTime = sleep;
+            slots = slotMachine.spinSeveralTimes(4);
+            try {
+                Thread.sleep((int) sleepTime);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sleepTime = sleepTime * 1.05;
+        }
     }
 
     public static void main(String[] args) throws Exception {
