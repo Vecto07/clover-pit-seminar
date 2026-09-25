@@ -48,7 +48,7 @@ public class UI extends ToolkitApp {
                         row(
                                 text("Schulden: " + (schulden - slotMachine.getCoinsEarned()) + "$").bold().cyan(),
                                 spacer(),
-                                text("Coins gesamt: " + slotMachine.getCoinsEarned()).bold().cyan(),
+                                text("Coins gesamt: " + slotMachine.getCoinsEarned() + "$").bold().cyan(),
                                 spacer(),
                                 text("Tag: 1").bold().cyan()
                         ),
