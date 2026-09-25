@@ -49,7 +49,7 @@ public class UI extends ToolkitApp {
 
                     return EventResult.UNHANDLED;
                 }),
-                panel("Right",
+                panel("Inventory",
                         row(
                             panel("Top",
                                 text("💩")
@@ -67,7 +67,7 @@ public class UI extends ToolkitApp {
                                     text("💩")
                             ).rounded()
                         ).flex(Flex.SPACE_AROUND)
-                ).fill().rounded()
+                ).fill().rounded().bold()
 
         );
     }
