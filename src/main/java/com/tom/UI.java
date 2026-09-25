@@ -49,21 +49,21 @@ public class UI extends ToolkitApp {
 
                     return EventResult.UNHANDLED;
                 }),
-                panel("Right",
+                panel("Inventar",
                         row(
-                            panel("Top",
+                            panel("Item 1",
                                 text("💩")
                             ).rounded(),
-                            panel("Top",
+                            panel("Item 2",
                                     text("💩")
                             ).rounded(),
-                            panel("Top",
+                            panel("Item 3",
                                     text("💩")
                             ).rounded(),
-                            panel("Top",
+                            panel("Item 4",
                                     text("💩")
                             ).rounded(),
-                            panel("Top",
+                            panel("Item 5",
                                     text("💩")
                             ).rounded()
                         ).flex(Flex.SPACE_AROUND)

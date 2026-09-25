@@ -68,7 +68,7 @@ public class Welcome extends ToolkitApp {
     }
 
     private void showNextMessage() {
-        messageIndex = (messageIndex + 1) % Willkommen.length;
+        messageIndex = (messageIndex + 1);
         visibleCharacters = 0;
     }
 
