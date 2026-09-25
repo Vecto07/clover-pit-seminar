@@ -29,8 +29,8 @@ public class SlotMachine {
         this.emojiAppearancesInitial = new HashMap<>();
         this.playerInventory = new Inventory();
         this.mult1 = 1.25;
-        this.mult2 = 2.5;
-        this.mult3 = 4.0;
+        this.mult2 = 2;
+        this.mult3 = 3.5;
         this.emojiProbabilities.put(0.44, "💩");
         this.emojiProbabilities.put(0.74, "❤️");
         this.emojiProbabilities.put(0.89, "👽");
@@ -115,6 +115,7 @@ public class SlotMachine {
     }
 
     public String spinSeveralTimes(int amount) {
+        this.coins = 0;
         ArrayList<String> emojis = new ArrayList<>();
         String output = "";
         this.checkInventory();
@@ -155,9 +156,12 @@ public class SlotMachine {
         return output.trim();
     }
 
-    public double getCoins() {
-        coins = 0;
+    public double getCoinsEarned() {
         return this.coinsEarned;
+    }
+
+    public double getCoins() {
+        return this.coins;
     }
 
     public double calculateCoins(String emoji) {

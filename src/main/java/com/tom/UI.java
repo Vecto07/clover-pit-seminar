@@ -99,7 +99,7 @@ public class UI extends ToolkitApp {
                 }
                 app.runOnRenderThread(() -> {
                     spinSlots();
-                    statusText = "Coins: " + slotMachine.getCoins();
+                    statusText = "Coins: " + slotMachine.getCoinsEarned();
                     spinning = false;
                 });
             } catch (InterruptedException exception) {
