@@ -23,6 +23,7 @@ public class SlotMachine {
         this.emojiValues = new HashMap<>();
         this.emojiValuesInitial = new HashMap<>();
         this.emojiAppearances = new HashMap<>();
+        this.emojiAppearancesInitial = new HashMap<>();
         this.playerInventory = new Inventory();
         this.emojiProbabilities.put(0.44, "💩");
         this.emojiProbabilities.put(0.74, "❤️");
@@ -135,9 +136,7 @@ public class SlotMachine {
     }
 
     public double getCoins() {
-        double tempCoins = this.coins;
-        this.coins = 0;
-        return tempCoins;
+        return this.coinsEarned;
     }
 
     public double calculateCoins(String emoji) {

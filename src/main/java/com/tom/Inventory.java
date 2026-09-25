@@ -13,10 +13,12 @@ public class Inventory {
     }
 
     public int getInventoryLength() {
+
         return(this.inventar.size());
     }
 
     public ArrayList<String> getArrayList() {
+
         return this.inventar;
     }
 
