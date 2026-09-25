@@ -73,16 +73,7 @@ public class UI extends ToolkitApp {
     }
 
     public void spinSlots(int sleep) {
-        for(int i = 0; i < 50; i++) {
-            double sleepTime = sleep;
-            slots = slotMachine.spinSeveralTimes(4);
-            try {
-                Thread.sleep((int) sleepTime);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            sleepTime = sleepTime * 1.05;
-        }
+        slots = slotMachine.spinSeveralTimes(4);
     }
 
     public static void main(String[] args) throws Exception {
