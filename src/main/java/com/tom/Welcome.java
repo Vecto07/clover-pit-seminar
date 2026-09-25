@@ -1,19 +1,19 @@
 package com.tom;
+
 import static dev.tamboui.toolkit.Toolkit.*;
 
 import dev.tamboui.layout.Flex;
 import dev.tamboui.style.Color;
 import dev.tamboui.style.Overflow;
-import dev.tamboui.toolkit.app.ToolkitApp;
 import dev.tamboui.toolkit.app.ToolkitRunner;
 import dev.tamboui.toolkit.element.Element;
 import dev.tamboui.toolkit.event.EventResult;
 
 import java.time.Duration;
 
+public class Welcome {
 
-public class Welcome extends ToolkitApp {
-    private static final String[] Willkommen = {
+    private static final String[] WILLKOMMEN = {
             "Willkommen bei Clover Pit!",
             "Warte... Du hast $1500 Schulden??",
             "Du hast Glück im Unglück! Du musst sie zwar innerhalb von 5 Tagen zurückzahlen...",
@@ -37,48 +37,55 @@ public class Welcome extends ToolkitApp {
             "TSCHÜSS",
             "TSCHÜSS",
             "TSCHÜSS"
-
     };
 
-    private int messageIndex;
-    private int visibleCharacters;
+    private final Main app;
+    private int messageIndex = 0;
+    private int visibleCharacters = 0;
     private ToolkitRunner.ScheduledAction typingAnimation;
 
-    @Override
-    protected void onStart() {
-        ToolkitRunner appRunner = runner();
+    public Welcome(Main app) {
+        this.app = app;
+    }
+
+    public void onStart(ToolkitRunner appRunner) {
         typingAnimation = appRunner.scheduleRepeating(
                 () -> appRunner.runOnRenderThread(this::typeNextCharacter),
                 Duration.ofMillis(55)
         );
     }
 
-    @Override
-    protected void onStop() {
+    public void onStop() {
         if (typingAnimation != null) {
             typingAnimation.cancel();
         }
     }
 
     private void typeNextCharacter() {
-        String currentMessage = Willkommen[messageIndex];
+        String currentMessage = WILLKOMMEN[messageIndex];
         if (visibleCharacters < currentMessage.length()) {
             visibleCharacters++;
         }
     }
 
     private void showNextMessage() {
-        messageIndex = (messageIndex + 1) % Willkommen.length;
+        messageIndex++;
+        if (messageIndex >= WILLKOMMEN.length) {
+            // Nach dem letzten Text automatisch zum Spiel wechseln
+            app.startGame();
+            return;
+        }
         visibleCharacters = 0;
     }
 
     private String visibleMessage() {
-        String currentMessage = Willkommen[messageIndex];
-        return currentMessage.substring(0, visibleCharacters);
+        // Guard against index out of bounds during scene transition
+        int safeIndex = Math.min(messageIndex, WILLKOMMEN.length - 1);
+        String currentMessage = WILLKOMMEN[safeIndex];
+        return currentMessage.substring(0, Math.min(visibleCharacters, currentMessage.length()));
     }
 
-    @Override
-    protected Element render() {
+    public Element render() {
         return row(
                 panel("Links").fill().borderColor(Color.BLACK),
                 panel("Spiel",
@@ -102,6 +109,13 @@ public class Welcome extends ToolkitApp {
                                 .rounded()
                                 .flex(Flex.CENTER)
                 ).fill().rounded().vertical().onKeyEvent(event -> {
+                    // Starten bei 'q' oder 'Q'
+                    if (event.isChar('q') || event.isChar('Q')) {
+                        app.startGame();
+                        return EventResult.HANDLED;
+                    }
+
+                    // Nächster Text bei Leertaste oder Enter
                     if (event.isChar(' ') || event.isConfirm()) {
                         showNextMessage();
                         return EventResult.HANDLED;
@@ -110,11 +124,6 @@ public class Welcome extends ToolkitApp {
                     return EventResult.UNHANDLED;
                 }),
                 panel("Rechts").fill().borderColor(Color.BLACK)
-
         );
-    }
-
-    public static void main(String[] args) throws Exception {
-        new Welcome().run();
     }
 }
