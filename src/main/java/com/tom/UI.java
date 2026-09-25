@@ -18,6 +18,7 @@ public class UI extends ToolkitApp {
         this.app = app;
     }
     SlotMachine slotMachine = new SlotMachine();
+    Inventory inventory = new Inventory();
     private String slots = "[ ][ ][ ][ ]";
     private String statusText = "Press Space to Spin";
     @Override
@@ -53,25 +54,25 @@ public class UI extends ToolkitApp {
 
                     return EventResult.UNHANDLED;
                 }),
-                panel("Inventory",
+                panel("Inventar",
                         row(
-                            panel("Top",
-                                text("💩")
+                            panel("Item 1",
+                                text(inventory.getItem(0))
                             ).rounded(),
-                            panel("Top",
-                                    text("💩")
+                            panel("Item 2",
+                                    text(inventory.getItem(1))
                             ).rounded(),
-                            panel("Top",
-                                    text("💩")
+                            panel("Item 3",
+                                    text(inventory.getItem(2))
                             ).rounded(),
-                            panel("Top",
-                                    text("💩")
+                            panel("Item 4",
+                                    text(inventory.getItem(3))
                             ).rounded(),
-                            panel("Top",
-                                    text("💩")
+                            panel("Item 5",
+                                    text(inventory.getItem(4))
                             ).rounded()
                         ).flex(Flex.SPACE_AROUND)
-                ).fill().rounded().bold()
+                ).fill().rounded()
 
         );
     }

@@ -5,6 +5,7 @@ import static dev.tamboui.toolkit.Toolkit.*;
 import dev.tamboui.layout.Flex;
 import dev.tamboui.style.Color;
 import dev.tamboui.style.Overflow;
+import dev.tamboui.toolkit.app.ToolkitApp;
 import dev.tamboui.toolkit.app.ToolkitRunner;
 import dev.tamboui.toolkit.element.Element;
 import dev.tamboui.toolkit.event.EventResult;
@@ -37,6 +38,7 @@ public class Welcome {
             "TSCHÜSS",
             "TSCHÜSS",
             "TSCHÜSS"
+
     };
 
     private final Main app;
@@ -124,6 +126,7 @@ public class Welcome {
                     return EventResult.UNHANDLED;
                 }),
                 panel("Rechts").fill().borderColor(Color.BLACK)
+
         );
     }
 }
