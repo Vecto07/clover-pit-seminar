@@ -36,7 +36,7 @@ public class Welcome extends ToolkitApp {
             "TSCHÜSS",
             "TSCHÜSS",
             "TSCHÜSS",
-            "TSCHÜSS",
+            "TSCHÜSS"
 
     };
 
