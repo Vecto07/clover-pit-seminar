@@ -3,6 +3,7 @@ import static dev.tamboui.toolkit.Toolkit.*;
 
 import dev.tamboui.layout.Flex;
 import dev.tamboui.style.Color;
+import dev.tamboui.style.Overflow;
 import dev.tamboui.toolkit.app.ToolkitApp;
 import dev.tamboui.toolkit.app.ToolkitRunner;
 import dev.tamboui.toolkit.element.Element;
@@ -68,16 +69,18 @@ public class Welcome extends ToolkitApp {
                 panel("Links").fill().borderColor(Color.BLACK),
                 panel("Spiel",
                         panel(
-                                text(visibleMessage()).bold().cyan().centered(),
                                 spacer(),
-                                text("Leertaste für den nächsten Text").dim().centered(),
+                                text("[❤️][❤️][❤️][❤️]").bold().cyan().centered(),
                                 spacer()
                         )
                                 .percent(33)
                                 .rounded()
                                 .flex(Flex.CENTER),
                         panel(
-
+                                text(visibleMessage()).bold().cyan().centered().overflow(Overflow.WRAP_WORD),
+                                spacer(),
+                                text("Leertaste für den nächsten Text").dim().centered(),
+                                spacer(),
                                 spacer(),
                                 text("Drücke 'q' zum Starten").dim().centered()
                         )

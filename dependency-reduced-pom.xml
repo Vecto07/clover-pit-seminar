@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.tom.UI</mainClass>
+                  <mainClass>com.tom.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -30,7 +30,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.5.0</version>
         <configuration>
-          <mainClass>com.tom.UI</mainClass>
+          <mainClass>com.tom.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
