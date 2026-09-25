@@ -13,9 +13,11 @@ public class SlotMachine {
     private HashMap<String, Integer> emojiAppearancesInitial;
     private Inventory playerInventory;
     private double coins;
+    private double coinsEarned;
 
     public SlotMachine() {
         this.coins = 0;
+        this.coinsEarned = 0;
         this.emojiProbabilities = new HashMap<>();
         this.emojiProbabilitiesInitial = new HashMap<>();
         this.emojiValues = new HashMap<>();
@@ -99,6 +101,9 @@ public class SlotMachine {
     public String spinSeveralTimes(int amount) {
         ArrayList<String> emojis = new ArrayList<>();
         ArrayList<String> emojisClean = new ArrayList<>();
+        double mult1 = 1.25;
+        double mult2 = 2;
+        double mult3 = 1.6;
         String output = "";
         this.checkInventory();
         for(int i = 1; i <= amount; i++) {
@@ -107,19 +112,17 @@ public class SlotMachine {
             this.emojiAppearances.put(tempString, appearances + 1);
             emojis.add("[" + tempString + "]");
             emojisClean.add(tempString);
-            coins = coins + this.calculateCoins(tempString);
             if(this.emojiAppearances.get(tempString) == 2) {
-                coins = coins * 1.25;
-            }
-            if(this.emojiAppearances.get(tempString) == 3) {
-                coins = coins * 2;
-            }
-            if(this.emojiAppearances.get(tempString) == 4) {
-                coins = coins * 1.6;
+                coins = coins * mult1;
+            } else if(this.emojiAppearances.get(tempString) == 3) {
+                coins = coins * mult2;
+            } else if(this.emojiAppearances.get(tempString) == 4) {
+                coins = coins * mult3;
             }
             if(this.emojiAppearances.get("☠️") == 4) {
-                coins = 0;
+                coinsEarned = 0;
             }
+            coinsEarned = coinsEarned + this.calculateCoins(tempString);
             this.emojiAppearances = this.emojiAppearancesInitial;
         }
 
