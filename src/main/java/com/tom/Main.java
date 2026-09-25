@@ -34,6 +34,10 @@ public class Main extends ToolkitApp {
         this.currentScreen = Screen.GAME;
     }
 
+    public void runOnRenderThread(Runnable action) {
+        runner().runOnRenderThread(action);
+    }
+
     @Override
     protected Element render() {
         return switch (currentScreen) {
